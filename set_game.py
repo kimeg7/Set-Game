@@ -196,10 +196,10 @@ def main():
     combinations = all_combinations(shapes, shape_colors, background_colors)
     images = load_images(combinations)
     buttons(screen, noset, reset, exit)
-
+    cards = []; solutions = []; chosen_cards = []; correct_cards_box = []; answer_set_count = 0
+    
     cards, solutions = reset_board(images,combinations,screen)       
         
-    cards = []; solutions = []; chosen_cards = []; correct_cards_box = []; answer_set_count = 0
     crashed = False
     while not crashed:
         for event in pygame.event.get():
