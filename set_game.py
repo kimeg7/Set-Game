@@ -64,7 +64,7 @@ def load_images(combinations):
     images = []
     for i in range(len(combinations)):
         
-        picture = pygame.image.load('image_'+str(i+1)+'.png')
+        picture = pygame.image.load('images\\image_'+str(i+1)+'.png')
         picture = pygame.transform.scale(picture, (width,height))
         images.append(picture)
     return images
