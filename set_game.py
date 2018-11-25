@@ -131,6 +131,11 @@ def remove_highlighted(cards,correct_cards, screen):
         cards[card].draw()
     return
 
+def remove_double_clicked(cards,card,screen):
+    pygame.draw.rect(screen, black, (cards[card].x-10,cards[card].y-10,width+20,height+20))
+    cards[card].draw()
+    return
+  
 def check(chosen_cards, solutions):
     for solution in solutions:
         if set(chosen_cards) == set(solution):
@@ -221,8 +226,15 @@ def main():
                 if len(cards)>0:
                     answer_card = choose(mx,my,cards,screen)
                     
-                    if not answer_card == -1 and answer_card not in chosen_cards:
-                        chosen_cards.append(answer_card)
+                    if not answer_card == -1:
+                        if answer_card not in chosen_cards: chosen_cards.append(answer_card)
+                        else:
+                            for index, element in enumerate(chosen_cards):
+                                if element == answer_card:
+                                    chosen_cards.pop(index)
+                                    remove_double_clicked(cards,element,screen)
+                                    break
+                                                
                     
                     if len(chosen_cards) == 3:
                         correct_cards = check(chosen_cards, solutions)
