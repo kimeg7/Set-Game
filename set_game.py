@@ -267,11 +267,11 @@ def main():
                                 remove_highlighted(cards,correct_cards,screen)
                                 chosen_cards = []
                                 
-                    result1, result2 = no_set_decision(mx, my, images, combinations, screen, answer_set_count, solutions, find_more_sets)
+                    new_cards, new_solutions = no_set_decision(mx, my, images, combinations, screen, answer_set_count, solutions, find_more_sets)
                     
-                    if not result1 == -1:
-                        cards = result1
-                        solutions = result2
+                    if not new_cards == -1:
+                        cards = new_cards
+                        solutions = new_solutions
                         display_message(no_set, screen)
                         remove_highlighted(cards,chosen_cards,screen)
                         answer_set_count = 0; correct_cards_box = []
