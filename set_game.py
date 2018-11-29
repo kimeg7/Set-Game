@@ -180,7 +180,7 @@ def initialize_game_settings():
     pygame.font.init() 
     
     screen = pygame.display.set_mode((screen_width, screen_height))
-    
+    pygame.display.set_caption('Set Game')
     font = pygame.font.SysFont('Comic Sans MS', 20)
     noset = font.render('No Set', False, (0, 0, 0))
     reset = font.render('RESET', False, (0, 0, 0))
